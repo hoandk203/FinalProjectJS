@@ -11,7 +11,7 @@ export const router = new Navigo("/");
 router.on({
     "/": function () {
         if (!localStorage.getItem("access_token")) {
-            loginPage();
+            router.navigate("/login");
             return;
         }
         homePage();
@@ -32,14 +32,14 @@ router.on({
     },
     "/post/0": function () {
         if (!localStorage.getItem("access_token")) {
-            loginPage();
+            router.navigate("/login");
             return;
         }
         createPostPage();
     },
     "/post/:id": function (data) {
         if (!localStorage.getItem("access_token")) {
-            loginPage();
+            router.navigate("/login");
             return;
         }
         updatePostPage(data.data.id);
