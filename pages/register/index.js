@@ -114,6 +114,8 @@ const onRegister = async (e) => {
             const response = await postMethod("master/user", body);
             if (response) {
                 sessionStorage.setItem("msg_success", "registered");
+                sessionStorage.setItem("emailRegistered", `${email}`);
+                sessionStorage.setItem("passwordRegistered", `${password}`);
                 router.navigate("/login");
             }
         } catch (error) {

@@ -9,12 +9,12 @@ const content = `
             <div class="form-group">
                 <label for="email">Email</label>
                 <div class="msg-email none"></div>
-                <input type="email" name="email" placeholder="Email" required>
+                <input type="email" name="email" placeholder="Email" value="" required>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
                 <div class="msg-password none"></div>
-                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="password" placeholder="Password" value="" required>
             </div>
             <div class="form-action">
                 <button type="submit" class="login-btn">Login</button>
@@ -30,6 +30,23 @@ export const render = () => {
     const msg = document.querySelector(".msg");
     const msgEmail = document.querySelector(".msg-email");
     const msgPassword = document.querySelector(".msg-password");
+
+    // AUTO FILL
+
+    document.querySelector("input[name='password']").value =
+        sessionStorage.getItem("passwordRegistered")
+            ? sessionStorage.getItem("passwordRegistered")
+            : "";
+
+    document.querySelector("input[name='email']").value =
+        sessionStorage.getItem("emailRegistered")
+            ? sessionStorage.getItem("emailRegistered")
+            : "";
+
+    sessionStorage.removeItem("emailRegistered");
+    sessionStorage.removeItem("passwordRegistered");
+
+    // SUCCESS MESSAGE
 
     const msgSuccess = document.querySelector(".msg-success");
     if (sessionStorage.getItem("msg_success")) {
