@@ -93,7 +93,11 @@ const getPosts = async () => {
                 })
                 .join("");
             const table = document.querySelector(".table-container table");
-            table.innerHTML += postsList;
+            if (!postsList) {
+                table.innerHTML = `<span>Bạn chưa có bài viết nào. Hãy tạo bài viết nhé.</span>`;
+            } else {
+                table.innerHTML += postsList;
+            }
 
             // EDIT BTN
 

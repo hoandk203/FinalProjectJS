@@ -101,7 +101,9 @@ button {
 }
 
 .table-container {
-    padding: 40px 0;
+    padding: 30px;
+    margin-top: 40px;
+    box-shadow: #c9c9c9 0 0 10px;
 }
 
 .table-container table {
@@ -168,6 +170,7 @@ button {
     text-align: center;
     background-color: cornflowerblue;
     color: white;
+    padding: 8px 0;
 }
 
 .auth-container form,
